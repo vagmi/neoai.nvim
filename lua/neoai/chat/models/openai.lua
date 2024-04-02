@@ -53,6 +53,7 @@ end
 ---@param on_complete fun(err?: string, output?: string) Function to call when model has finished
 M.send_to_model = function(chat_history, on_stdout_chunk, on_complete)
     local api_key = config.options.open_ai.api_key.get()
+    local api_base = config.options.open_ai.api_base
 
     local data = {
         model = chat_history.model,
@@ -67,7 +68,7 @@ M.send_to_model = function(chat_history, on_stdout_chunk, on_complete)
         "--silent",
         "--show-error",
         "--no-buffer",
-        "https://api.openai.com/v1/chat/completions",
+        api_base,
         "-H",
         "Content-Type: application/json",
         "-H",

@@ -45,6 +45,7 @@ M.get_defaults = function()
             ["select_down"] = "<C-j>",
         },
         open_ai = {
+            api_base = "https://api.openai.com/v1/chat/completions",
             api_key = {
                 env = "OPENAI_API_KEY",
                 value = nil,
@@ -135,6 +136,7 @@ end
 
 ---@class Open_AI_Options
 ---@field api_key Open_AI_Key_Options The open api key options
+---@field api_base string Defaults to chat completion endpoint.
 
 ---@class Open_AI_Key_Options
 ---@field env string The environment variable to get the open api key from
